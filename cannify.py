@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import argparse
+import imutils
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-1","--image",required=True,help="input path to image file")
@@ -22,4 +23,4 @@ def cannify(image, moveOn = False):
         cv2.waitKey(0)
 
 
-cannify(card)
+cannify(imutils.resize(card,height=300))
