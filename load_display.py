@@ -63,4 +63,5 @@ def display(image, description = None, moveOn = False):
         cv2.waitKey(0) # move on with any key input
 
 # loading image with cv2
-display(cv2.imread(getCardFromUser()))
+if __name__ == '__main__':     
+    display(cv2.imread(getCardFromUser()))
