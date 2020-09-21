@@ -49,12 +49,18 @@ def getCardFromUser():
     return cardImagePath
 
 
-def display(imagePath, moveOn = False):
-    # imagePath str, boolean defaulted to staying at image
-    image = cv2.imread(imagePath)
-    cv2.imshow(imagePath, image)
+def display(image, description = None, moveOn = False):
+    """
+    Purpose: To display a given image within python's cv2 framework and wait
+    (or not) for user's go-ahead.
+    Parameters: An image (numpy array), an unrequired description describing
+    said image (str), and an unnecessary binary variable defaulted at False
+    corresponding to using (or not) the cv2.waitKey() function (boolean)
+    Return: None.
+    """
+    cv2.imshow(description, image)
     if not moveOn:
         cv2.waitKey(0) # move on with any key input
 
 # loading image with cv2
-display(getCardFromUser())
+display(cv2.imread(getCardFromUser()))
