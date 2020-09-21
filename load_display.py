@@ -26,7 +26,7 @@ def getCardFromUser():
             print(f"{suit}: ({inDex+1})")
         suitChosen = input("\nChoose your suit by the corresponding righthand index integers: ")
 
-        if suitChosen in ["1","2","3","4"]: # stringified list of possible answer indices
+        if suitChosen in [str(i) for i in range(1,5)]: # stringified list of possible answer indices
             suitSelected = True
             cardSuit = suits[int(suitChosen)-1]
         else:
@@ -37,7 +37,7 @@ def getCardFromUser():
             print(f"{value}: ({inDex+1})")
         valueChosen = input("\nChoose your value by the corresponding righthand index integers: ")
 
-        if valueChosen in ["1","2","3","4","5","6","7","8","9","10","11","12","13"]: # stringified list of possible answer indices
+        if valueChosen in [str(i) for i in range(1,14)]: # stringified list of possible answer indices
             valueSelected = True
             cardValue = values[int(valueChosen)-1]
         else:
@@ -63,5 +63,5 @@ def display(image, description = None, moveOn = False):
         cv2.waitKey(0) # move on with any key input
 
 # loading image with cv2
-if __name__ == '__main__':     
+if __name__ == '__main__':
     display(cv2.imread(getCardFromUser()))
