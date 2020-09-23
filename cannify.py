@@ -35,3 +35,4 @@ if __name__ == '__main__':
     card = cv2.imread(args["image"])
     canniedCard = cannify(imutils.resize(card,height=300))
     cv2.imshow("cannied", canniedCard)
+    cv2.waitKey(0)

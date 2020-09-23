@@ -3,12 +3,14 @@ import imutils
 import construct_histogram
 import blur
 from cannify import cannify
+import findCard
 import numpy as np
 import cv2
 
 # implementing Chapter 3: Loading and Displaying, and Chapter 6: Image Processing
 baseCardPath = load_display.getCardFromUser()
 baseCardImage = cv2.imread(baseCardPath)
+card = baseCardImage.copy() # ref variable
 load_display.display(imutils.resize(baseCardImage,width=500),"base-resized") # resizing proportionally to width of 500 pixels
 
 
@@ -33,3 +35,9 @@ load_display.display(blurs,"See the basic image, a gaussian blur, and a bilatera
 print("\nWhere are our meaningful edges?\n")
 cannyCard = cannify(baseCardImage) # using default parameters
 load_display.display(imutils.resize(cannyCard, width=500),"Greyscale canny")
+
+
+# implementing Chapter 11: Contours, Chapter 4: Image Basics, and Chapter 5: Drawing
+print("\nLet's isolate the card!\n")
+croppedCard = findCard.getCardFromImage(card)
+load_display.display(imutils.resize(croppedCard, width=500), "Focused on Card")

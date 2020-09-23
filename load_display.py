@@ -44,6 +44,8 @@ def getCardFromUser():
             print("Invalid input. Please choose from 1 to 13, corresponding to your preferred value.\n")
 
 
+    if cardValue == 10:
+        cardValue = 0  #switching based on file names
     print(f"\n You've selected the {cardValue} of {cardSuit}!\n")
     cardImagePath = f"img/cards-[{cardSuit[0]}{cardValue}]-001.jpg" # image Path, the '-001' corresponds to the hardwood background
     return cardImagePath
