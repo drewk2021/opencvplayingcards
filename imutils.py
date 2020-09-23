@@ -36,7 +36,7 @@ def resize(image, inter = cv2.INTER_AREA, width = None, height = None):
         newDimensions = (int(ratio * previousWidth), height)
 
     else: # no user-supplied resize
-        return Image
+        return image
 
 
     resized = cv2.resize(image, newDimensions, inter) # (width,height) tuple, method of resizing
