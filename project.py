@@ -2,6 +2,7 @@ import load_display
 import imutils
 import construct_histogram
 import blur
+from cannify import cannify
 import numpy as np
 import cv2
 
@@ -25,3 +26,10 @@ blurs = np.hstack([ #numpy.hstack() allows displaying together
     imutils.resize(blur.gBlur(baseCardImage),width=500), # using default parameters
     imutils.resize(blur.bilateralBlur(baseCardImage),width=500)]) # using default parameters
 load_display.display(blurs,"See the basic image, a gaussian blur, and a bilateral blur.")
+
+
+
+# implementing Chapter 10: Gradients and Edge Detection
+print("\nWhere are our meaningful edges?\n")
+cannyCard = cannify(baseCardImage) # using default parameters
+load_display.display(imutils.resize(cannyCard, width=500),"Greyscale canny")
